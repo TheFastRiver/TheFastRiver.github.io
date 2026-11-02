@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f8fa" />
+  <meta name="description" content="The Fast River is a creative game studio making playful worlds and feel-good experiences. Explore our studio and read our Privacy Policy." />
+  <title>The Fast River — Games worth getting lost in</title>
+  <style>
+    :root {
+      --ink:#172b42;--ink2:#4e6377;--blue:#176de8;--aqua:#36bdd1;--mint:#c9efdb;
+      --paper:#f5f8fa;--white:#fff;--yellow:#fff08d;--border:#dbe5eb;
+      --radius:24px;--shadow:0 22px 80px rgba(20,52,77,.09);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    button,a{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit}
+    [hidden]{display:none!important}
+    ::selection{background:#b4e9fa;color:#092d4b}
+    .wrap{width:min(1240px,calc(100% - 80px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:850}
+    .eyebrow::before{content:"";width:19px;height:2px;border-radius:2px;background:currentColor}
+    .topline{height:7px;background:linear-gradient(90deg,#176de8 0 33.33%,#36bdd1 33.33% 66.66%,#ffdc6d 66.66%)}
+    header{position:relative;z-index:20;background:rgba(245,248,250,.95);border-bottom:1px solid #e2e9ed}
+    .nav{height:100px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;gap:13px;align-items:center;text-decoration:none;min-width:0;flex-shrink:0}
+    .brand-mark{width:49px;height:49px;display:grid;place-items:center;border-radius:16px;background:var(--blue);box-shadow:0 7px 16px rgba(23,109,232,.19)}
+    .brand-mark svg{width:33px;height:33px}
+    .brand-name{display:flex;flex-direction:column;font-weight:930;letter-spacing:-.05em;font-size:20px;line-height:.92}
+    .brand-name small{font-size:9px;line-height:1.5;letter-spacing:.21em;color:#7490a2;font-weight:850;margin-top:5px}
+    .nav-links{display:flex;align-items:center;gap:10px;padding:6px;background:#eaf0f4;border:1px solid #e2e9ec;border-radius:50px;margin-left:auto}
+    .nav-links a{padding:11px 21px;border-radius:40px;text-decoration:none;color:#627487;font-size:13px;font-weight:800;transition:background .2s,color .2s,box-shadow .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-links a.active{background:#fff;box-shadow:0 2px 8px rgba(25,51,71,.08);color:var(--ink)}
+    .nav-mail{display:flex;align-items:center;gap:10px;background:var(--ink);border-radius:100px;padding:15px 19px;color:#fff;text-decoration:none;font-size:13px;font-weight:800;transition:transform .2s,background .2s;white-space:nowrap}
+    .nav-mail:hover{background:var(--blue);transform:translateY(-2px)}
+    .nav-mail svg{width:17px;height:17px}
+    .hero{position:relative;padding:100px 0 104px;isolation:isolate}
+    .hero::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;min-height:650px;background:radial-gradient(circle at 71% 25%,rgba(143,226,242,.28),transparent 33%),radial-gradient(circle at 15% 55%,rgba(218,237,255,.62),transparent 35%)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:24px;align-items:center;min-height:595px}
+    .hero-copy{position:relative;z-index:3;padding:25px 0 40px}
+    .hero-topline{display:flex;align-items:center;gap:12px;color:var(--blue);font-size:12px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;margin-bottom:25px}
+    .pulse{width:10px;height:10px;background:var(--aqua);border:3px solid #c9f2ef;box-sizing:content-box;border-radius:100%}
+    .hero h1{font-size:clamp(60px,7.2vw,111px);line-height:.965;font-weight:900;letter-spacing:-.095em;margin:0 0 29px;max-width:730px}
+    .hero h1 span{display:block}
+    .hero h1 .river-word{color:var(--blue);position:relative;white-space:nowrap}
+    .hero h1 .river-word::after{content:"";position:absolute;left:1%;right:13%;bottom:-11px;height:10px;border-bottom:7px solid var(--aqua);border-radius:50%;transform:rotate(-3deg)}
+    .hero-desc{font-size:17px;line-height:1.85;color:var(--ink2);max-width:400px;margin:31px 0 29px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:15px;justify-content:center;min-height:55px;padding:0 22px;text-decoration:none;border-radius:100px;font-weight:850;font-size:14px;transition:transform .2s,background .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 23px #176de826}
+    .btn-primary:hover{background:#125aca}
+    .btn-ghost{border:1.5px solid #cddbe3;background:#fff;color:var(--ink)}
+    .btn svg{width:19px;height:19px}
+    .hero-art{position:relative;min-width:0;padding:14px 6px 16px 8px}
+    .art-frame{position:relative;overflow:hidden;isolation:isolate;width:100%;aspect-ratio: .95;background:#beeae8;border-radius:46% 46% 38px 38px;box-shadow:inset 0 0 0 10px rgba(255,255,255,.35),0 34px 75px #32718924}
+    .art-frame svg{display:block;width:100%;height:100%;object-fit:cover}
+    .art-stamp{position:absolute;z-index:5;right:-16px;top:85px;display:flex;justify-content:center;align-items:center;text-align:center;width:123px;height:123px;border-radius:50%;background:var(--yellow);border:7px solid var(--paper);color:#163149;transform:rotate(13deg);font-size:12px;line-height:1.32;font-weight:900;letter-spacing:.04em;box-shadow:0 15px 30px #1a5a7a1f}
+    .art-stamp::after{content:"✦";position:absolute;bottom:13px;font-size:15px;color:var(--blue)}
+    .art-caption{position:absolute;bottom:-8px;left:-30px;z-index:5;padding:18px 23px;background:#fff;border:1px solid #dfebee;box-shadow:var(--shadow);border-radius:16px;display:flex;align-items:center;gap:15px}
+    .art-caption .icon-circle{width:41px;height:41px;border-radius:50%;background:#deefff;display:grid;place-items:center;color:var(--blue);font-size:22px}
+    .art-caption strong{display:block;font-size:14px;letter-spacing:-.015em}
+    .art-caption small{display:block;color:#8b9ca9;font-size:11px;margin-top:3px}
+    .hero-meta{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:66px;padding-top:23px;border-top:1px solid #dce6ec;max-width:450px}
+    .hero-meta span{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:850;color:#7c91a0}
+    .hero-meta span::before{content:"✦";color:var(--blue);font-size:13px}
+    .ticker{background:var(--blue);overflow:hidden;color:#fff;clip-path:polygon(0 13%,100% 0,100% 87%,0 100%);position:relative;z-index:4;margin:10px 0 0}
+    .ticker-inner{display:flex;align-items:center;justify-content:space-around;gap:25px;padding:21px 5px;white-space:nowrap;font-size:16px;font-weight:850;letter-spacing:-.025em}
+    .ticker-star{color:#ffe78a;font-size:19px}
+    .section{padding:122px 0}
+    .section-title{margin:22px 0 0;font-weight:900;font-size:clamp(43px,5.4vw,76px);letter-spacing:-.078em;line-height:1.05}
+    .section-title em{font-style:normal;color:var(--blue)}
+    .about{padding-top:153px}
+    .about-top{display:grid;grid-template-columns:1fr .75fr;gap:100px;align-items:end;margin-bottom:50px}
+    .about-top .eyebrow{color:var(--blue)}
+    .about-summary{font-size:17px;line-height:1.83;color:var(--ink2);padding-bottom:5px;max-width:430px;margin:0}
+    .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .value{border-radius:24px;min-height:295px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border:1px solid #e0e8e9;transition:transform .25s,box-shadow .25s}
+    .value:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+    .value:nth-child(1){background:#dbeeff}
+    .value:nth-child(2){background:#fff1b5}
+    .value:nth-child(3){background:#d9f4e8}
+    .value-num{font-size:12px;font-weight:900;color:#8194a0;letter-spacing:.13em}
+    .value-graphic{width:94px;height:94px;position:absolute;top:35px;right:30px;transition:transform .25s}
+    .value:hover .value-graphic{transform:rotate(-8deg) scale(1.06)}
+    .value h3{font-size:27px;letter-spacing:-.055em;line-height:1.1;margin:0 0 11px;font-weight:900}
+    .value p{color:#5d6e75;font-size:13px;line-height:1.65;margin:0;max-width:275px}
+    .contact-section{padding:16px 0 115px}
+    .contact-block{background:#162f49;border-radius:30px;min-height:385px;padding:64px 72px;display:flex;justify-content:space-between;align-items:center;gap:30px;position:relative;overflow:hidden;color:#fff}
+    .contact-block::before{content:"";position:absolute;width:600px;height:600px;right:-170px;top:-250px;border-radius:50%;border:70px solid rgba(65,196,216,.12)}
+    .contact-block::after{content:"";position:absolute;width:380px;height:380px;right:-40px;bottom:-270px;border-radius:50%;border:60px solid rgba(95,179,246,.18)}
+    .contact-text{position:relative;z-index:1}
+    .contact-text .eyebrow{color:#a7ebed}
+    .contact-text h2{font-size:clamp(42px,5vw,70px);line-height:1.05;letter-spacing:-.08em;max-width:650px;margin:20px 0 18px}
+    .contact-text p{font-size:15px;line-height:1.7;color:#bcd0df;max-width:450px}
+    .contact-button{position:relative;z-index:1;flex-shrink:0;width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;color:var(--ink);font-size:13px;font-weight:900;text-decoration:none;background:var(--yellow);transform:rotate(-10deg);transition:transform .2s,background .2s}
+    .contact-button:hover{transform:rotate(0deg) scale(1.05);background:#fff}
+    .contact-button svg{width:29px;height:29px}
+    footer{background:#e9f0f4;border-top:1px solid #d8e5ec;padding:49px 0 35px}
+    .footer-row{display:grid;grid-template-columns:1fr auto auto;gap:50px;align-items:center}
+    .footer-row .brand-mark{width:39px;height:39px;border-radius:12px}
+    .footer-row .brand-mark svg{width:27px}
+    .footer-row .brand-name{font-size:17px}
+    .footer-row .brand-name small{font-size:8px}
+    .footer-nav{display:flex;gap:27px;align-items:center}
+    .footer-nav a{text-decoration:none;color:#546d80;font-size:13px;font-weight:700}
+    .footer-nav a:hover{color:var(--blue)}
+    .footer-mail{color:var(--blue);text-decoration:none;font-weight:800;font-size:13px}
+    .footer-bottom{display:flex;justify-content:space-between;gap:15px;margin-top:38px;padding-top:25px;border-top:1px solid #cfdde5;color:#7c90a0;font-size:12px}
+    /* Separate editorial privacy view */
+    .privacy-hero{background:#e2f1fc;position:relative;overflow:hidden;padding:105px 0 90px;border-bottom:1px solid #d2e5f1}
+    .privacy-hero::before{content:"";position:absolute;border:55px solid #c9e5f8;border-radius:50%;width:560px;height:560px;right:-100px;top:-315px}
+    .privacy-hero::after{content:"";position:absolute;border:35px solid #c6eafb;border-radius:50%;width:250px;height:250px;right:18%;bottom:-180px}
+    .privacy-hero .wrap{position:relative;z-index:1}
+    .privacy-hero .eyebrow{color:var(--blue)}
+    .privacy-hero h1{font-size:clamp(58px,8vw,106px);font-weight:920;letter-spacing:-.058em;line-height:1;margin:25px 0 19px}
+    .privacy-hero p{font-size:17px;color:#506a7e;line-height:1.7;max-width:650px;margin:0}
+    .privacy-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #d3e3ee;border-radius:100px;padding:11px 16px;font-size:12px;color:#537083;font-weight:800}
+    .chip svg{width:15px;height:15px;color:var(--blue)}
+    .privacy-layout{display:grid;grid-template-columns:244px minmax(0,1fr);gap:64px;align-items:start;padding:65px 0 130px}
+    .toc{position:sticky;top:26px;max-height:calc(100vh - 45px);overflow:auto;scrollbar-width:thin;padding-right:10px}
+    .toc-label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:#98a8b6;margin-bottom:16px}
+    .toc button{display:flex;align-items:center;gap:13px;text-align:left;width:100%;padding:10px 6px;border:0;background:transparent;border-radius:9px;font-size:12px;font-weight:750;color:#677d8b;line-height:1.35;transition:background .2s,color .2s}
+    .toc button:hover,.toc button:focus-visible{background:#e6f0f7;color:var(--blue);outline:none}
+    .toc button span{font-size:10px;color:#b0bdc8;font-weight:900;min-width:18px}
+    .policy-intro{padding:33px 36px;border-radius:19px;background:#fff;border:1px solid #e3eaf0;box-shadow:0 9px 22px #163c5d08;margin-bottom:25px}
+    .policy-intro h2{font-size:21px;letter-spacing:-.035em;margin:0 0 12px}
+    .policy-intro p{margin:0;color:#617586;font-size:14px;line-height:1.8}
+    .policy-section{scroll-margin-top:25px;background:#fff;border:1px solid #e3eaf0;border-radius:19px;padding:34px 37px;margin-bottom:16px}
+    .policy-head{display:flex;align-items:start;gap:17px;margin-bottom:14px}
+    .policy-number{display:grid;place-items:center;width:37px;height:37px;min-width:37px;background:#e6f2ff;border-radius:12px;color:var(--blue);font-size:12px;font-weight:900}
+    .policy-head h2{font-size:23px;line-height:1.25;letter-spacing:-.048em;font-weight:880;margin:5px 0 0}
+    .policy-section p,.policy-section li{font-size:14px;line-height:1.85;color:#5a6e80}
+    .policy-section p{margin:12px 0}
+    .policy-section ul{padding-left:22px;margin:13px 0 8px}
+    .policy-section li{padding-left:5px;margin:4px 0}
+    .policy-section strong{color:var(--ink)}
+    .policy-section a,.policy-intro a{color:var(--blue);text-underline-offset:3px;overflow-wrap:anywhere}
+    .policy-section a:hover{text-decoration-thickness:2px}
+    .policy-tail{margin-top:36px;padding:32px 36px;background:#e5f3fd;border:1px solid #d6e9f7;border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .policy-tail h3{margin:0 0 8px;font-size:23px;letter-spacing:-.04em}
+    .policy-tail p{margin:0;color:#698297;font-size:13px;line-height:1.6}
+    .policy-tail a{font-size:13px;font-weight:800;border-radius:100px;background:var(--blue);padding:16px 22px;color:#fff;white-space:nowrap;text-decoration:none}
+    .policy-credit{font-size:11px;color:#9aaab5;margin:24px 3px}
+    .policy-credit a{color:#7b9aa9}
+    @media (max-width:1100px){.wrap{width:min(100% - 56px,1100px)}.hero{padding:75px 0 90px}.hero h1{font-size:clamp(57px,7.3vw,91px)}.art-stamp{right:-8px;width:106px;height:106px;font-size:11px}.about-top{gap:40px}.contact-block{padding:55px}.privacy-layout{gap:35px}}
+    @media (max-width:760px){
+      .wrap{width:calc(100% - 38px)}
+      .nav{height:78px;gap:8px}
+      .brand{gap:9px}
+      .brand-mark{width:40px;height:40px;border-radius:13px}
+      .brand-mark svg{width:28px;height:28px}
+      .brand-name{font-size:15px}
+      .brand-name small{font-size:7px;letter-spacing:.15em}
+      .nav-links{gap:1px;padding:4px}
+      .nav-links a{font-size:11px;padding:10px 12px}
+      .nav-mail{display:none}
+      .hero{padding:47px 0 75px}
+      .hero-grid{grid-template-columns:1fr;gap:35px}
+      .hero-copy{padding:0}
+      .hero-topline{margin-bottom:22px}
+      .hero h1{font-size:clamp(62px,11vw,89px);max-width:640px}
+      .hero-desc{font-size:15px;line-height:1.8;max-width:550px}
+      .hero-meta{margin-top:37px;gap:14px}
+      .hero-art{max-width:590px;width:calc(100% - 18px);margin:auto;padding:7px}
+      .art-frame{aspect-ratio:1.13;border-radius:43% 43% 25px 25px}
+      .art-stamp{top:55px;right:-15px}
+      .art-caption{left:-17px;bottom:-14px}
+      .ticker-inner{font-size:12px;gap:18px;padding:19px 5px}
+      .section{padding:85px 0}
+      .about{padding-top:110px}
+      .about-top{grid-template-columns:1fr;gap:20px}
+      .section-title{font-size:clamp(43px,8vw,64px)}
+      .about-summary{font-size:15px;max-width:650px}
+      .value-grid{grid-template-columns:1fr;gap:14px}
+      .value{min-height:220px;padding:29px}
+      .value-graphic{width:80px;height:80px}
+      .contact-section{padding:0 0 78px}
+      .contact-block{padding:40px 28px;min-height:410px;align-items:flex-start;flex-direction:column}
+      .contact-text h2{font-size:clamp(42px,9vw,65px)}
+      .contact-button{width:auto;height:auto;transform:none;border-radius:100px;padding:17px 22px;flex-direction:row;font-size:12px}
+      .contact-button svg{width:17px;height:17px}
+      .footer-row{grid-template-columns:1fr auto;gap:22px}
+      .footer-mail{grid-column:1/-1}
+      .footer-bottom{font-size:11px}
+      .privacy-hero{padding:75px 0 60px}
+      .privacy-hero h1{font-size:clamp(54px,10vw,80px)}
+      .privacy-layout{grid-template-columns:1fr;gap:23px;padding:37px 0 80px}
+      .toc{position:static;overflow-x:auto;overflow-y:hidden;display:flex;gap:6px;max-height:none;padding:0 0 12px;white-space:nowrap}
+      .toc-label{display:none}
+      .toc button{width:auto;flex:0 0 auto;display:inline-flex;padding:10px 12px;border:1px solid #dce8ed;background:#fff;font-size:11px;white-space:nowrap}
+      .policy-intro,.policy-section{padding:26px 23px}
+      .policy-head h2{font-size:21px}
+      .policy-tail{padding:27px;flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:390px){.wrap{width:calc(100% - 28px)}.brand-name{font-size:13px}.nav-links a{padding:9px 10px}.hero h1{font-size:58px}.hero-meta{gap:10px}.hero-meta span{font-size:9px}.art-stamp{right:-9px;top:42px;width:90px;height:90px;font-size:10px}.art-caption{padding:13px 15px}.btn{padding:0 16px;font-size:12px}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+<div class="topline" aria-hidden="true"></div>
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand" data-view="home" aria-label="The Fast River, home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 42 42" fill="none"><path d="M5 14.5C11.3 8 16.2 20.2 22.3 14.5 27.7 9.5 32 11.5 37 9" stroke="white" stroke-width="4" stroke-linecap="round"/><path d="M5 25.5C11.3 19 16.2 31.2 22.3 25.5 27.7 20.5 32 22.5 37 20" stroke="#91E6EC" stroke-width="4" stroke-linecap="round"/><path d="M5 35C11.3 28.5 16.2 40.7 22.3 35 27.7 30 32 32 37 29.5" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-name">THE FAST<br>RIVER<small>GAME STUDIO</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home" data-view="home" class="active" aria-current="page">Home</a>
+      <a href="#privacy" data-view="privacy">Privacy Policy</a>
+    </nav>
+    <a class="nav-mail" href="mailto:vanluong200807@gmail.com" aria-label="Email The Fast River"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>Let's talk <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="homeView">
+  <section class="hero" id="home" aria-labelledby="home-heading">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="hero-topline"><span class="pulse" aria-hidden="true"></span>Welcome to The Fast River</div>
+        <h1 id="home-heading"><span>LET THE</span><span>FUN <span class="river-word">FLOW.</span></span></h1>
+        <p class="hero-desc">Playful ideas. Colorful worlds. Little moments of joy. We’re a game studio that believes every great adventure starts with curiosity.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#studio">Meet the studio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
+          <a class="btn btn-ghost" href="#privacy">Privacy policy <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta"><span>Made for play</span><span>Driven by curiosity</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a sparkling river flowing through a friendly colorful game world">
+        <div class="art-frame">
+          <svg viewBox="0 0 800 825" role="img" aria-label="Winding bright blue river, sunny green hills, colorful trees and a smiling little blue explorer" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#88d5ff"/><stop offset=".6" stop-color="#d6f5f7"/><stop offset="1" stop-color="#edffdf"/></linearGradient>
+              <linearGradient id="land" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#92dfaa"/><stop offset="1" stop-color="#b6e98c"/></linearGradient>
+              <linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78eced"/><stop offset=".45" stop-color="#28bddd"/><stop offset="1" stop-color="#1684d0"/></linearGradient>
+              <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a8e6aa"/><stop offset="1" stop-color="#6bc6a7"/></linearGradient>
+              <filter id="softshadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter>
+              <g id="tree"><path d="M0 12v48" stroke="#856b55" stroke-width="9" stroke-linecap="round"/><circle cx="-23" cy="3" r="31" fill="#319b87"/><circle cx="19" cy="-16" r="36" fill="#3db594"/><circle cx="-4" cy="-31" r="35" fill="#6bcba2"/><circle cx="25" cy="-26" r="22" fill="#85dfb0"/></g>
+              <g id="flower"><circle cx="0" cy="-7" r="7" fill="#ffadc6"/><circle cx="8" cy="0" r="7" fill="#ff9ab4"/><circle cx="0" cy="8" r="7" fill="#ffadc6"/><circle cx="-8" cy="0" r="7" fill="#ff9ab4"/><circle r="5" fill="#fff8a9"/></g>
+            </defs>
+            <rect width="800" height="825" fill="url(#sky)"/>
+            <circle cx="588" cy="137" r="75" fill="#fff6b6"/>
+            <circle cx="588" cy="137" r="99" fill="#fff8c2" opacity=".18"/>
+            <g fill="#fff" opacity=".67"><ellipse cx="143" cy="155" rx="66" ry="18"/><circle cx="119" cy="144" r="28"/><circle cx="159" cy="138" r="34"/><ellipse cx="715" cy="234" rx="77" ry="19"/><circle cx="689" cy="220" r="27"/><circle cx="735" cy="212" r="33"/></g>
+            <path d="M0 390Q114 285 238 354Q350 248 464 346Q578 282 688 364Q740 316 800 353V825H0Z" fill="#b4dfc5"/>
+            <path d="M0 439Q122 355 240 409Q365 326 477 416Q625 340 800 419V825H0Z" fill="#8bd6b2"/>
+            <path d="M0 529Q175 361 360 458Q494 372 616 434Q733 410 800 456V825H0Z" fill="url(#land)"/>
+            <path d="M0 626Q135 494 253 517Q323 565 430 506Q589 458 800 564V825H0Z" fill="url(#hill)"/>
+            <path d="M435 337C528 368 265 436 302 525C347 621 630 543 583 653C549 741 334 719 250 875L-42 875C-8 663 405 688 442 616C484 536 192 590 179 508C167 416 421 370 378 345Z" fill="#e8f7ba" opacity=".75"/>
+            <path d="M425 343C505 374 273 444 315 514C373 615 596 554 561 636C523 721 311 718 232 870L-32 870C35 695 411 681 461 620C527 527 211 577 202 502C193 428 438 383 383 349Z" fill="url(#water)"/>
+            <path d="M405 368C459 396 269 458 337 511C401 579 574 562 530 627C482 693 312 701 184 833" fill="none" stroke="#b9fbf2" stroke-width="15" stroke-linecap="round" opacity=".55"/>
+            <path d="M410 376C460 401 289 457 350 511" fill="none" stroke="#effff5" stroke-width="5" stroke-linecap="round" opacity=".82"/>
+            <path d="M474 612C425 656 315 648 235 754" fill="none" stroke="#e4ffff" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+            <g fill="none" stroke="#e2fffa" stroke-width="5" stroke-linecap="round" opacity=".75"><path d="M336 460q19 7 38 0"/><path d="M263 496q13 5 26 0"/><path d="M420 557q18 5 34-1"/><path d="M382 683q14 4 33-1"/><path d="M139 768q21 5 40-2"/></g>
+            <g opacity=".18" fill="#427a64" filter="url(#softshadow)"><ellipse cx="667" cy="495" rx="85" ry="30"/><ellipse cx="125" cy="640" rx="90" ry="31"/></g>
+            <use href="#tree" x="156" y="415" transform="translate(156 415) scale(.85) translate(-156 -415)"/>
+            <use href="#tree" x="675" y="386" transform="translate(675 386) scale(.75) translate(-675 -386)"/>
+            <use href="#tree" x="715" y="521" transform="translate(715 521) scale(1.13) translate(-715 -521)"/>
+            <use href="#tree" x="110" y="611" transform="translate(110 611) scale(1.2) translate(-110 -611)"/>
+            <g transform="translate(170 448) scale(.5)"><use href="#tree"/></g>
+            <g transform="translate(670 406) scale(.6)"><use href="#tree"/></g>
+            <g transform="translate(724 562) scale(1.2)"><use href="#tree"/></g>
+            <g transform="translate(120 646) scale(1.2)"><use href="#tree"/></g>
+            <g transform="translate(59 515) scale(.55)"><use href="#tree"/></g>
+            <g transform="translate(604 474) scale(.58)"><use href="#tree"/></g>
+            <g transform="translate(778 646) scale(.8)"><use href="#tree"/></g>
+            <g transform="translate(597 721) scale(.6)"><use href="#tree"/></g>
+            <g transform="translate(65 758) scale(.6)"><use href="#tree"/></g>
+            <g transform="translate(749 719)"><ellipse rx="31" ry="15" fill="#91c7a1"/><ellipse cy="-7" rx="24" ry="12" fill="#b5db9a"/></g>
+            <g transform="translate(660 626)"><ellipse rx="37" ry="17" fill="#81c7a9"/><ellipse cy="-5" rx="27" ry="10" fill="#b7e3b0"/></g>
+            <g transform="translate(145 550)"><ellipse rx="22" ry="10" fill="#84bca5"/><ellipse cy="-4" rx="19" ry="9" fill="#b8e0a5"/></g>
+            <g transform="translate(646 565)"><use href="#flower"/></g>
+            <g transform="translate(640 586) scale(.6)"><use href="#flower"/></g>
+            <g transform="translate(72 702)"><use href="#flower"/></g>
+            <g transform="translate(97 726) scale(.72)"><use href="#flower"/></g>
+            <g transform="translate(762 767) scale(.8)"><use href="#flower"/></g>
+            <g transform="translate(183 578) scale(.7)"><use href="#flower"/></g>
+            <g transform="translate(579 414) scale(.75)"><use href="#flower"/></g>
+            <g transform="translate(595 701)"><ellipse cy="23" rx="54" ry="14" fill="#386d72" opacity=".16"/>
+              <path d="M-35-4Q-55-39-30-68Q4-102 35-69Q56-40 32-1Q17 15 0 17Q-18 16-35-4Z" fill="#126cc9"/>
+              <path d="M-29-45Q-18-80 7-76Q25-73 30-49" fill="none" stroke="#67d6ef" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+              <ellipse cx="-13" cy="-35" rx="5" ry="7" fill="#11394f"/><ellipse cx="17" cy="-35" rx="5" ry="7" fill="#11394f"/>
+              <path d="M-8-20Q1-10 11-20" fill="none" stroke="#11394f" stroke-width="4" stroke-linecap="round"/>
+              <ellipse cx="-28" cy="-16" rx="7" ry="4" fill="#fb92a2" opacity=".7"/><ellipse cx="30" cy="-16" rx="7" ry="4" fill="#fb92a2" opacity=".7"/>
+              <path d="M-20 13V28M18 13V28" stroke="#124785" stroke-width="9" stroke-linecap="round"/>
+              <path d="M-38-35Q-60-25-58-7M37-36Q59-45 64-62" fill="none" stroke="#126cc9" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="63" cy="-66" r="10" fill="#126cc9"/>
+            </g>
+            <g fill="#fff" opacity=".7"><path d="M235 215q16-15 31 0q15-15 31 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M290 184q11-10 22 0q11-10 22 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+          </svg>
+        </div>
+        <div class="art-stamp">JOY<br>IS THE<br>JOURNEY</div>
+        <div class="art-caption"><div class="icon-circle">✳</div><div><strong>Worlds worth exploring</strong><small>One playful idea at a time</small></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="ticker" aria-hidden="true"><div class="ticker-inner"><span>MAKE A SPLASH</span><span class="ticker-star">✳</span><span>PLAY SOMETHING WONDERFUL</span><span class="ticker-star">✳</span><span>FOLLOW THE FUN</span><span class="ticker-star">✳</span><span>MAKE A SPLASH</span></div></div>
+  <section class="section about" id="studio" aria-labelledby="studio-heading">
+    <div class="wrap">
+      <div class="about-top"><div><span class="eyebrow">01 / About our studio</span><h2 class="section-title" id="studio-heading">Big smiles.<br><em>Fresh ideas.</em><br>Endless play.</h2></div><p class="about-summary">At The Fast River, we love the magic of games: the little surprises, the satisfying challenges, and the worlds that stay with you. We approach each idea with imagination and care.</p></div>
+      <div class="value-grid">
+        <article class="value"><div class="value-num">WHAT DRIVES US — 01</div><svg class="value-graphic" viewBox="0 0 100 100" aria-hidden="true"><circle cx="49" cy="49" r="39" fill="#176de8"/><circle cx="49" cy="49" r="26" fill="#bde6ff"/><path d="m50 24-8 24h15l-8 27 27-34H57l8-17z" fill="#176de8"/><path d="M9 70c10 0 10 12 20 12s10-12 20-12 10 12 20 12 10-12 20-12" fill="none" stroke="#56b9ef" stroke-width="5" stroke-linecap="round"/></svg><div><h3>Play comes first.</h3><p>Easy to pick up. Delightful to discover. Built around moments that make playing feel great.</p></div></article>
+        <article class="value"><div class="value-num">WHAT DRIVES US — 02</div><svg class="value-graphic" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 7 61 35 90 39 68 58 75 87 50 71 25 87 32 58 10 39 39 35Z" fill="#ffae47" stroke="#e99533" stroke-width="3"/><path d="M34 48h8m18 0h8" stroke="#60482b" stroke-width="5" stroke-linecap="round"/><path d="M43 58q7 8 15 0" fill="none" stroke="#60482b" stroke-width="4" stroke-linecap="round"/></svg><div><h3>Made with heart.</h3><p>Color, character, and thoughtful details turn simple ideas into memorable little adventures.</p></div></article>
+        <article class="value"><div class="value-num">WHAT DRIVES US — 03</div><svg class="value-graphic" viewBox="0 0 100 100" aria-hidden="true"><path d="M15 67C26 53 41 57 48 40S67 19 85 25" fill="none" stroke="#168f91" stroke-width="14" stroke-linecap="round"/><path d="m69 13 17 12-18 12" fill="none" stroke="#168f91" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="24" r="9" fill="#75d6b8"/><circle cx="80" cy="74" r="11" fill="#f6cc61"/><circle cx="44" cy="81" r="5" fill="#80c3f0"/></svg><div><h3>Always exploring.</h3><p>New mechanics, fresh perspectives, and plenty of curiosity keep our creative current moving.</p></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="contact-section" aria-label="Contact The Fast River"><div class="wrap"><div class="contact-block"><div class="contact-text"><span class="eyebrow">02 / Say hello</span><h2>Have an idea?<br>Let's make waves.</h2><p>Questions, collaborations, or just a friendly hello — our inbox is open.</p></div><a class="contact-button" href="mailto:vanluong200807@gmail.com" aria-label="Send an email to vanluong200807@gmail.com">EMAIL US <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19 19 5M7 5h12v12"/></svg></a></div></div></section>
+</main>
+<main id="privacyView" hidden>
+  <section class="privacy-hero" aria-labelledby="policy-title"><div class="wrap"><span class="eyebrow">The Fast River / Your information</span><h1 id="policy-title">Privacy Policy<span style="color:#176de8">.</span></h1><p>Transparency matters. Here’s how The Fast River handles information when you use our mobile applications and related services.</p><div class="privacy-chips"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>Effective November 2, 2026</span><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 8h6m-6 5h6"/></svg>Mobile games &amp; related services</span></div></div></section>
+  <div class="wrap privacy-layout">
+    <aside class="toc" aria-label="Privacy policy contents"><div class="toc-label">On this page</div>
+      <button type="button" data-target="policy-collection"><span>01</span>Information collection</button>
+      <button type="button" data-target="policy-cookies"><span>02</span>Cookies &amp; tracking</button>
+      <button type="button" data-target="policy-rights"><span>03</span>Your rights</button>
+      <button type="button" data-target="policy-california"><span>04</span>California rights</button>
+      <button type="button" data-target="policy-use"><span>05</span>How information is used</button>
+      <button type="button" data-target="policy-thirdparty"><span>06</span>Third-party access</button>
+      <button type="button" data-target="policy-transfers"><span>07</span>International transfers</button>
+      <button type="button" data-target="policy-optout"><span>08</span>Opt-out rights</button>
+      <button type="button" data-target="policy-retention"><span>09</span>Data retention</button>
+      <button type="button" data-target="policy-children"><span>10</span>Children</button>
+      <button type="button" data-target="policy-security"><span>11</span>Security</button>
+      <button type="button" data-target="policy-breach"><span>12</span>Data breach</button>
+      <button type="button" data-target="policy-changes"><span>13</span>Policy changes</button>
+      <button type="button" data-target="policy-consent"><span>14</span>Your consent</button>
+      <button type="button" data-target="policy-contact"><span>15</span>Contact us</button>
+    </aside>
+    <div class="policy-body">
+      <div class="policy-intro"><h2>About this policy</h2><p>This Privacy Policy applies to mobile applications and any related services provided by <strong>The Fast River</strong> (collectively, the “Application”). The Fast River is referred to as the “Service Provider” throughout this policy.</p></div>
+      <section class="policy-section" id="policy-collection"><div class="policy-head"><span class="policy-number">01</span><h2>Information Collection and Use</h2></div><p>The Application collects information when you download and use it. This information may include:</p><ul><li>Your device's Internet Protocol (IP) address.</li><li>The pages of the Application that you visit, the time and date of your visit, and the time spent on those pages.</li><li>The time spent using the Application.</li><li>The mobile operating system you use.</li></ul></section>
+      <section class="policy-section" id="policy-cookies"><div class="policy-head"><span class="policy-number">02</span><h2>Cookies and Tracking Technologies</h2></div><p>The Application or its third-party SDKs may use cookies, SDKs, pixels, and similar technologies to support functionality, analytics, or service delivery. Where required by applicable law, the Service Provider will obtain consent before using non-essential tracking technologies.</p></section>
+      <section class="policy-section" id="policy-rights"><div class="policy-head"><span class="policy-number">03</span><h2>Your Rights</h2></div><p>You may request access to, correction of, or deletion of your personal data held by the Service Provider. To exercise these rights, or to withdraw consent where processing is based on consent, contact the Service Provider at <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>.</p></section>
+      <section class="policy-section" id="policy-california"><div class="policy-head"><span class="policy-number">04</span><h2>Your California Privacy Rights (CCPA/CPRA)</h2></div><p>If you are a California resident, you have the right to know what personal information is collected, the right to delete personal information, the right to opt out of the sale or sharing of personal information, and the right to non-discrimination for exercising these rights, to the extent provided by applicable law. To exercise these rights, contact <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>.</p></section>
+      <section class="policy-section" id="policy-use"><div class="policy-head"><span class="policy-number">05</span><h2>How Information Is Used</h2></div><p>The Service Provider may use the information you provide to send important information, required notices, and, where permitted by law, marketing communications.</p><p>For a better experience while using the Application, the Service Provider may require you to provide certain personally identifiable information. The information requested will be retained and used as described in this Privacy Policy.</p></section>
+      <section class="policy-section" id="policy-thirdparty"><div class="policy-head"><span class="policy-number">06</span><h2>Third-Party Access</h2></div><p>Aggregated or anonymized data may be periodically transmitted to external services to help the Service Provider improve the Application and its services. Other information may be shared with third parties in the circumstances described in this policy.</p><p>The Application utilizes third-party services that have their own privacy policies, including:</p><ul><li><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity — Privacy Policy ↗</a></li></ul><p>The Service Provider may disclose User Provided and Automatically Collected Information:</p><ul><li>As required by law, such as to comply with a subpoena or similar legal process.</li><li>When the Service Provider believes in good faith that disclosure is necessary to protect its rights, protect your safety or the safety of others, investigate fraud, or respond to a government request.</li><li>To trusted service providers who work on its behalf, do not have independent use of the information disclosed to them, and have agreed to adhere to the rules set forth in this statement.</li></ul></section>
+      <section class="policy-section" id="policy-transfers"><div class="policy-head"><span class="policy-number">07</span><h2>International Data Transfers</h2></div><p>The Service Provider or its third-party service providers may transfer personal data to countries outside your country of residence, including outside the European Economic Area (EEA). Where applicable law requires safeguards for international transfers, the Service Provider will use appropriate mechanisms, including:</p><ul><li>Standard Contractual Clauses (SCCs) approved by the European Commission.</li><li>Adequacy decisions or other legally recognized transfer mechanisms.</li><li>Your consent, where required and legally permitted.</li></ul><p>Data protection laws in other countries may differ from those in your jurisdiction. Where required by law, the Service Provider will apply appropriate safeguards and obtain any consent required for the transfer.</p></section>
+      <section class="policy-section" id="policy-optout"><div class="policy-head"><span class="policy-number">08</span><h2>Opt-Out Rights</h2></div><p>You can stop further collection of information from your mobile device by uninstalling the Application. Uninstalling stops the Application from collecting data from your device, but does not automatically delete information already transmitted to the Service Provider or third parties.</p><p>To request deletion of your personal data, withdraw consent, or exercise your rights, contact <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>.</p></section>
+      <section class="policy-section" id="policy-retention"><div class="policy-head"><span class="policy-number">09</span><h2>Data Retention Policy</h2></div><p>The Service Provider retains personal data based on its necessity for the stated purposes:</p><ul><li><strong>User Provided Data:</strong> Retained for the duration of your use of the Application plus 12 months thereafter, unless longer retention is required by law.</li><li><strong>Automatically Collected Data:</strong> Retained for up to 24 months from collection, unless longer retention is required for legal compliance.</li><li><strong>Aggregated and Anonymized Data:</strong> Retained indefinitely as it no longer identifies you.</li><li><strong>Data required for legal compliance:</strong> Retained as long as required by applicable law.</li></ul><p>You may request deletion of your personal data, subject to any legal obligation to retain it. To request deletion of User Provided Data submitted through the Application, contact <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>. Some User Provided Data may be required for the Application to function properly.</p></section>
+      <section class="policy-section" id="policy-children"><div class="policy-head"><span class="policy-number">10</span><h2>Children</h2></div><p>The Application is not intended for children under 16 years of age, or such higher age as required by applicable law. The Service Provider does not knowingly solicit data from children or market the Application to them.</p><p>Where parental or guardian consent is required under applicable law, the Application is not intended for use without that consent. The Service Provider does not knowingly collect personally identifiable information from children under 16 in violation of applicable law. If the Service Provider discovers that a child has provided personal information, it will delete this information from its servers. If you are a parent or guardian and are aware that your child has provided personal information, contact <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a> so appropriate action can be taken.</p></section>
+      <section class="policy-section" id="policy-security"><div class="policy-head"><span class="policy-number">11</span><h2>Security</h2></div><p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information it processes and maintains.</p></section>
+      <section class="policy-section" id="policy-breach"><div class="policy-head"><span class="policy-number">12</span><h2>Data Breach Notification</h2></div><p>If a data breach occurs that affects your personal data, the Service Provider will notify you in accordance with applicable legal requirements, including, where required, information about the nature of the breach and the steps being taken to address it.</p></section>
+      <section class="policy-section" id="policy-changes"><div class="policy-head"><span class="policy-number">13</span><h2>Changes to This Policy</h2></div><p>The Service Provider may update this Privacy Policy from time to time. Material changes will be communicated by posting the updated Privacy Policy with an effective date. Where required by law, the Service Provider will seek your consent to material changes before they take effect.</p><p>Previous versions will be maintained and made available upon request by contacting <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>.</p><p><strong>This Privacy Policy is effective as of November 2, 2026.</strong></p></section>
+      <section class="policy-section" id="policy-consent"><div class="policy-head"><span class="policy-number">14</span><h2>Your Consent</h2></div><p>Where processing is based on consent, you provide that consent by affirmatively opting in to the relevant feature or action. You may withdraw consent at any time without affecting processing carried out before withdrawal. Processing based on other lawful bases is carried out as described above.</p></section>
+      <section class="policy-section" id="policy-contact"><div class="policy-head"><span class="policy-number">15</span><h2>Contact Us</h2></div><p>If you have any questions about privacy while using the Application, or about the Service Provider's practices, please contact The Fast River via email at <a href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a>.</p></section>
+      <div class="policy-tail"><div><h3>Still have a question?</h3><p>We're happy to help with privacy inquiries.</p></div><a href="mailto:vanluong200807@gmail.com?subject=Privacy%20Inquiry%20%E2%80%94%20The%20Fast%20River">Contact us ↗</a></div>
+      <div class="policy-credit">Policy adapted from an <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a> template. Verify that its statements match the data practices of each app before publication.</div>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap"><div class="footer-row"><a href="#home" class="brand" data-view="home" aria-label="The Fast River, home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><path d="M5 14.5C11.3 8 16.2 20.2 22.3 14.5 27.7 9.5 32 11.5 37 9M5 25.5C11.3 19 16.2 31.2 22.3 25.5 27.7 20.5 32 22.5 37 20M5 35C11.3 28.5 16.2 40.7 22.3 35 27.7 30 32 32 37 29.5" stroke="white" stroke-width="3.5" stroke-linecap="round"/></svg></span><span class="brand-name">THE FAST<br>RIVER<small>GAME STUDIO</small></span></a><div class="footer-nav"><a href="#home" data-view="home">Home</a><a href="#privacy" data-view="privacy">Privacy Policy</a></div><a class="footer-mail" href="mailto:vanluong200807@gmail.com">vanluong200807@gmail.com</a></div><div class="footer-bottom"><span>© 2026 The Fast River. All rights reserved.</span><span>Made for the joy of play.</span></div></div></footer>
+<script>
+(function(){
+  const home=document.getElementById('homeView');
+  const privacy=document.getElementById('privacyView');
+  let lastView=null;
+  function render(){
+    const route=location.hash.toLowerCase();
+    const view=route==='#privacy'?'privacy':'home';
+    home.hidden=view!=='home';
+    privacy.hidden=view!=='privacy';
+    document.querySelectorAll('[data-view]').forEach(function(link){
+      const isActive=link.dataset.view===view;
+      link.classList.toggle('active',isActive && link.closest('.nav-links')!==null);
+      if(link.closest('.nav-links')){if(isActive){link.setAttribute('aria-current','page')}else{link.removeAttribute('aria-current')}}
+    });
+    document.title=(view==='privacy'?'Privacy Policy':'Games worth getting lost in')+' — The Fast River';
+    if(view!==lastView){window.scrollTo({top:0,behavior:'instant'});lastView=view}
+  }
+  window.addEventListener('hashchange',render);
+  document.querySelectorAll('[data-target]').forEach(function(button){
+    button.addEventListener('click',function(){
+      const target=document.getElementById(button.dataset.target);
+      if(target)target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+    });
+  });
+  document.querySelectorAll('a[href="#home"],a[href="#privacy"]').forEach(function(link){
+    link.addEventListener('click',function(){if(location.hash===link.getAttribute('href'))window.scrollTo({top:0,behavior:'smooth'})});
+  });
+  render();
+})();
+</script>
+</body>
+  </html>
